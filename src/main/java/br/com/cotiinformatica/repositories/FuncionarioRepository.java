@@ -1,6 +1,7 @@
 package br.com.cotiinformatica.repositories;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
@@ -23,7 +24,7 @@ public class FuncionarioRepository {
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());
 		statement.setString(3, funcionario.getMatricula());
-		statement.setString(4, new SimpleDateFormat("yyyy-MM-dd").format(funcionario.getDataAdmissao()));
+		statement.setDate(4, Date.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(funcionario.getDataAdmissao())));
 		statement.setInt(5, funcionario.getEmpresa().getIdEmpresa());
 		statement.execute();
 
@@ -41,7 +42,7 @@ public class FuncionarioRepository {
 		statement.setString(1, funcionario.getNome());
 		statement.setString(2, funcionario.getCpf());
 		statement.setString(3, funcionario.getMatricula());
-		statement.setString(4, new SimpleDateFormat("yyyy-MM-dd").format(funcionario.getDataAdmissao()));
+		statement.setDate(4, Date.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(funcionario.getDataAdmissao())));
 		statement.setInt(5, funcionario.getEmpresa().getIdEmpresa());
 		statement.setInt(6, funcionario.getIdFuncionario());
 		statement.execute();
